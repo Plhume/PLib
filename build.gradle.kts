@@ -33,6 +33,10 @@ tasks {
         archiveVersion.set("")
         minimize()
     }
+
+    publish {
+        dependsOn(shadowJar)
+    }
 }
 
 java {
@@ -41,7 +45,7 @@ java {
 
 publishing {
     publications {
-        create<MavenPublication>("myPlugin") {
+        create<MavenPublication>("PLib") {
             from(components["java"])
             groupId = "fr.plhume.plib"
             artifactId = "plib"
