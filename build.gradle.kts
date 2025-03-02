@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("maven-publish")
     alias(libs.plugins.shadow)
 }
 
@@ -36,4 +37,24 @@ tasks {
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("myPlugin") {
+            from(components["java"])
+            groupId = "fr.plhume.plib"
+            artifactId = "plib"
+            version = "1.1"
+        }
+    }
+    repositories {
+        maven {
+            url = uri("https://maven.pkg.github.com/Plhume/PLib")
+            credentials {
+                username = (project.findProperty("gpr.user") ?: System.getenv("USERNAME")) as String?
+                password = (project.findProperty("gpr.token") ?: System.getenv("TOKEN")) as String?
+            }
+        }
+    }
 }
