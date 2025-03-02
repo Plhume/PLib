@@ -1,0 +1,6 @@
+name: PLib
+description: Library by Plhume for Plhume
+version: 1.0.0
+api-version: 1.21
+author: Plhume
+main: fr.plhume.plhumelib.PluginLoader
