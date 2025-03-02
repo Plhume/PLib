@@ -1,2 +1,1 @@
-rootProject.name = "PlhumeLib"
-
+rootProject.name = "PLib"

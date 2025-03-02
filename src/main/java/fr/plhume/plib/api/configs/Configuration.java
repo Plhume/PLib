@@ -1,4 +1,4 @@
-package fr.plhume.plhumelib.configs;
+package fr.plhume.plib.api.configs;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 

@@ -1,20 +1,37 @@
 plugins {
     id("java")
+    alias(libs.plugins.shadow)
 }
 
-group = "fr.plhume.plhumelib"
-version = "1.0.0"
+group = "fr.plhume.plib"
+version = "1.1"
+description = "Library by Plhume for Plhume"
 
 repositories {
     mavenCentral()
-    maven {
-        name = "papermc"
-        url = uri("https://repo.papermc.io/repository/maven-public/")
-    }
+    gradlePluginPortal()
+    maven { url = uri("https://repo.papermc.io/repository/maven-public/") }
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
+    compileOnly(libs.paper)
+}
+
+tasks {
+    build {
+        dependsOn(shadowJar)
+    }
+
+    clean {
+        delete("run")
+    }
+
+    shadowJar {
+        archiveBaseName.set(rootProject.name)
+        archiveClassifier.set("")
+        archiveVersion.set("")
+        minimize()
+    }
 }
 
 java {

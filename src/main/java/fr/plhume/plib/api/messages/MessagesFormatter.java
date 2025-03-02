@@ -1,4 +1,4 @@
-package fr.plhume.plhumelib.messages;
+package fr.plhume.plib.api.messages;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;

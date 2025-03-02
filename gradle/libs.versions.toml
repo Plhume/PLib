@@ -1,0 +1,11 @@
+metadata.format.version = "1.1"
+
+[versions]
+paper = "1.21.1-R0.1-SNAPSHOT"
+shadow = "8.1.8"
+
+[libraries]
+paper = { group = "io.papermc.paper", name = "paper-api", version.ref = "paper" }
+
+[plugins]
+shadow = { id = "io.github.goooler.shadow", version.ref = "shadow" }

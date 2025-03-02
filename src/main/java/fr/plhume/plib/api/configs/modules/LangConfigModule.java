@@ -1,6 +1,6 @@
-package fr.plhume.plhumelib.configs.modules;
+package fr.plhume.plib.api.configs.modules;
 
-import fr.plhume.plhumelib.configs.Configuration;
+import fr.plhume.plib.api.configs.Configuration;
 
 import java.io.File;
 

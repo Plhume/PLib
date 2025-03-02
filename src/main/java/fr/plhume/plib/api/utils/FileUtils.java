@@ -1,4 +1,4 @@
-package fr.plhume.plhumelib.utils;
+package fr.plhume.plib.api.utils;
 
 import java.io.File;
 import java.io.InputStream;
