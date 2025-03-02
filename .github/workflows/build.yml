@@ -1,0 +1,37 @@
+name: PLib Build
+on:
+  push:
+    branches: [ "**" ]
+  release:
+    types: [ published ]
+
+jobs:
+  build:
+    name: Build and upload
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Git repo
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: 17
+
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v3
+
+    - name: Build with Gradle
+      run: |
+        chmod +x gradlew
+        ./gradlew build shadowJar --no-daemon
+
+    - name: Archive plugin jars on GitHub
+      uses: actions/upload-artifact@v4
+      with:
+        name: PLib jar
+        path: jars/
